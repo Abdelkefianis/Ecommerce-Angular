@@ -1,0 +1,30 @@
+<p>index works!</p>
+
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Reference</th>
+            <th scope="col">Designation</th>
+            <th scope="col">Marque</th>
+            <th scope="col">Image</th>
+            <th scope="col">Prix</th>
+            <th scope="col">Quantité Stock</th>
+            <th scope="col">Modifier</th>
+            <th scope="col">Supprimer</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let p of prod" class="table-active">
+            <td>{{p.reference}}</td>
+            <td>{{p.designation}}</td>
+            <td>{{p.marque}}</td>
+            <td><img src="{{p.imageart}}" alt="" width="100" height="100"></td>
+            <td>{{p.prix}}</td>
+            <td>{{p.qtestock}}</td>
+            <td><input type="button" value="Modifier" class="btn btn-info"></td>
+            <td><input type="button" value="Supprimer" class="btn btn-danger"></td>
+        </tr>
+
+    </tbody>
+</table>
