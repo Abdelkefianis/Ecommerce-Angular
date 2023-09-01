@@ -18,7 +18,8 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
-    CategoriesRoutingModule
+    CategoriesRoutingModule,
+    FormsModule
   ]
 })
 export class CategoriesModule { }

@@ -7,6 +7,7 @@ import { CreateComponent } from './create/create.component';
 import { ViewComponent } from './view/view.component';
 import { EditComponent } from './edit/edit.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DataTablesModule } from 'angular-datatables';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     ProductsRoutingModule,
     FormsModule,
+    DataTablesModule,
     ReactiveFormsModule
   ]
 })

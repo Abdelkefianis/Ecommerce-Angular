@@ -1,1 +1,65 @@
-<p>create works!</p>
+<!--button trigger modal-->
+<button type="button" class="btn btn-success" (click)="openModal()">
+    <i class="bi bi-plus-circle-fill"></i> NewScategorie
+</button>
+
+<!--modal-->
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="text-center text-info">Ajout Sous Categorie</h2>
+                <button type="button" class="btn btn-default" aria-label="Close" (click)="closeModal()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <template *ngTemplateOutlet="formProduct"></template>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" (click)="closeModal()">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-----########################------Form-------###########################------->
+<ng-template #formProduct>
+    <form (ngSubmit)="addScategorie()">
+        <div class="form-wrapper">
+            <div class="mobile-form">
+                <div class="group">
+                    <div class="col-sm-12">
+                        <label for="">Reference</label>
+                        <input type="text" class="form-control" placeholder="nom" id="nomscategorie"
+                            name="nomscategorie" [(ngModel)]="scat.nomscategorie">
+
+                    </div>
+                </div>
+                <label for="">Categorie</label>
+                <select name="categorieID" class="form-select" placeholder="Catégorie" [(ngModel)]="scat.categorieID">
+                    <option *ngFor="let c of tabcat" value="{{c._id}}">
+                        {{c.nomcategorie}}
+                    </option>
+
+                </select>
+                <div class="group">
+                    <div class="col-sm-12">
+                        <label for="">Image</label>
+                        <input type="text" class="form-control" [(ngModel)]="scat.imagescat" placeholder="Image"
+                            name="imageart">
+
+                        <div *ngIf="scat.imagescat">
+                            <img src={{scat.imagescat}} width="100" height="50" />
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+    </form>
+</ng-template>

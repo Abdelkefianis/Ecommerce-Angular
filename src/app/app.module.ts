@@ -9,6 +9,7 @@ import { ScategoriesModule } from './scategories/scategories.module';
 import { NavscrollComponent } from './navscroll/navscroll.component';
 import { FormsModule } from '@angular/forms';
 
+
 @NgModule({
   declarations: [
     AppComponent,

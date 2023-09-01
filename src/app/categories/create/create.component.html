@@ -1,1 +1,62 @@
 <p>create works!</p>
+
+<!--button trigger modal-->
+<button type="button" class="btn btn-success" (click)="openModal()">
+    <i class="bi bi-plus-circle-fill"></i> NewCategorie
+</button>
+
+<!--modal-->
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="text-center text-info">Ajout Categorie</h2>
+                <button type="button" class="btn btn-default" aria-label="Close" (click)="closeModal()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <template *ngTemplateOutlet="formCategorie"></template>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" (click)="closeModal()">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-----########################------Form-------###########################------->
+<ng-template #formCategorie>
+    <form (ngSubmit)="addCategorie()">
+        <div class="form-wrapper">
+            <div class="mobile-form">
+                <div class="group">
+                    <div class="col-sm-12">
+                        <label for="">Nom Categorie</label>
+                        <input type="text" class="form-control" placeholder="nom" id="nomcategorie" name="nomcategorie"
+                            [(ngModel)]="cat.nomcategorie">
+
+                    </div>
+                </div>
+
+
+                <div class="group">
+                    <div class="col-sm-12">
+                        <label for="">Image</label>
+                        <input type="text" class="form-control" [(ngModel)]="cat.imagecategorie" placeholder="Image"
+                            name="imagecat">
+
+                        <div *ngIf="cat.imagecategorie">
+                            <img src={{cat.imagecategorie}} width="100" height="50" />
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+    </form>
+</ng-template>

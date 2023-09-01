@@ -1,7 +1,8 @@
 <p>index works!</p>
 
 <app-create></app-create>
-<table class="table table-hover">
+<br><br>
+<table datatable class="table table-hover" *ngIf="prod">
     <thead>
         <tr>
             <th scope="col">Image</th>
@@ -10,7 +11,7 @@
             <th scope="col">Marque</th>
             <th scope="col">Prix</th>
             <th scope="col">Quantité Stock</th>
-            <th scope="col" colspan="3">Actions</th>
+            <th scope="col" [width]="250">Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -21,10 +22,11 @@
             <td>{{p.marque}}</td>
             <td>{{p.prix}}</td>
             <td>{{p.qtestock}}</td>
-            <td><button type="button" value="" class="btn btn-warning"><i class="bi bi-pencil-square"></i></button></td>
-            <td><button type="button" value="" class="btn btn-info"><i class="bi bi-pencil"></i></button></td>
-            <td><button type="button" value="" class="btn btn-danger" (click)="delArticle(p._id)"><i
-                        class="bi bi-trash"></i></button></td>
+            <td><button type="button" value="" class="btn btn-warning"><i class="bi bi-pencil-square"></i></button>
+                <button type="button" value="" class="btn btn-info"><i class="bi bi-pencil"></i></button>
+                <button type="button" value="" class="btn btn-danger" (click)="delArticle(p._id)"><i
+                        class="bi bi-trash"></i></button>
+            </td>
         </tr>
 
     </tbody>
