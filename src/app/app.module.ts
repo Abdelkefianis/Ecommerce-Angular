@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, createComponent } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -7,6 +7,7 @@ import { ProductsModule } from './products/products.module';
 import { CategoriesModule } from './categories/categories.module';
 import { ScategoriesModule } from './scategories/scategories.module';
 import { NavscrollComponent } from './navscroll/navscroll.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { NavscrollComponent } from './navscroll/navscroll.component';
     HttpClientModule,
     ProductsModule,
     CategoriesModule,
-    ScategoriesModule
+    ScategoriesModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -16,6 +16,10 @@ export class IndexComponent implements OnInit {
     this.prservice.getallArticles().subscribe((data: Product[]) => { this.prod = data });
   }
 
+  delArticle(id: any) {
+    this.prservice.deleteArticle(id).subscribe((data) => { this.prod = this.prod?.filter(p => p._id !== id) })
+  }
+
   ngOnInit(): void {
 
     this.loadProducts();

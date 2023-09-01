@@ -1,1 +1,97 @@
-<p>create works!</p>
+<!--button trigger modal-->
+<button type="button" class="btn btn-success" (click)="openModal()">
+    <i class="bi bi-plus-circle-fill"></i> NewProduct
+</button>
+
+<!--modal-->
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="text-center text-info">Ajout Article</h2>
+                <button type="button" class="btn btn-default" aria-label="Close" (click)="closeModal()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <template *ngTemplateOutlet="formProduct"></template>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" (click)="closeModal()">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-----########################------Form-------###########################------->
+<ng-template #formProduct>
+    <form (ngSubmit)="addProduct()">
+        <div class="form-wrapper">
+            <div class="mobile-form">
+                <div class="group">
+                    <div class="col-sm-12">
+                        <label for="">Reference</label>
+                        <input type="text" class="form-control" placeholder="Référence" id="reference" name="reference"
+                            [(ngModel)]="prod.reference">
+
+                    </div>
+                </div>
+                <div class="group">
+                    <div class="col-sm-12">
+                        <label for="">Designation</label>
+                        <input type="text" class="form-control" placeholder="Désignation" id="designation"
+                            name="designation" [(ngModel)]="prod.designation">
+                    </div>
+                </div>
+                <div class="group">
+                    <div class="col-sm-12">
+                        <label for="">Prix</label>
+                        <input type="number" class="form-control" placeholder="prix" id="prix" name="prix"
+                            [(ngModel)]="prod.prix">
+                    </div>
+                </div>
+                <div class="group">
+                    <div class="col-sm-12">
+                        <label for="">Marque</label>
+                        <input type="text" class="form-control" placeholder="marque" id="marque" name="marque"
+                            [(ngModel)]="prod.marque">
+
+                    </div>
+                </div>
+
+                <div class="group">
+                    <div class="col-sm-12">
+                        <label for="">Quantité</label>
+                        <input type="number" class="form-control" placeholder="qtestock" id="qte" name="qtestock"
+                            [(ngModel)]="prod.qtestock">
+
+                    </div>
+                </div>
+                <label for="">Sous Categorie</label>
+                <select name="scategorieID" class="form-select" placeholder="Sous catégorie"
+                    [(ngModel)]="prod.scategorieId">
+                    <option *ngFor="let sc of tabscat" value="{{sc._id}}">
+                        {{sc.nomscategorie}}
+                    </option>
+
+                </select>
+                <div class="group">
+                    <div class="col-sm-12">
+                        <label for="">Image</label>
+                        <input type="text" class="form-control" [(ngModel)]="prod.imageart" placeholder="Image"
+                            name="imageart">
+
+                        <div *ngIf="prod.imageart">
+                            <img src={{prod.imageart}} width="100" height="50" />
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+    </form>
+</ng-template>
