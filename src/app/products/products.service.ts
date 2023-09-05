@@ -25,10 +25,6 @@ export class ProductsService {
     return this.http.delete(this.baseurl + _id)
   }
 
-  editArticle(prod: Product, _id: any) {
-
-  }
-
   getArticle(id: any): Observable<Product> {
     return this.http.get(this.baseurl + id)
   }

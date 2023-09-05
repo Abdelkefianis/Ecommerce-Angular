@@ -8,6 +8,7 @@ import { ViewComponent } from './view/view.component';
 import { EditComponent } from './edit/edit.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DataTablesModule } from 'angular-datatables';
+import { ProductcardComponent } from './productcard/productcard.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { DataTablesModule } from 'angular-datatables';
     IndexComponent,
     CreateComponent,
     ViewComponent,
-    EditComponent
+    EditComponent,
+    ProductcardComponent
   ],
   imports: [
     CommonModule,

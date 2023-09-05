@@ -22,10 +22,13 @@
             <td>{{p.marque}}</td>
             <td>{{p.prix}}</td>
             <td>{{p.qtestock}}</td>
-            <td><button type="button" value="" class="btn btn-warning"><i class="bi bi-pencil-square"></i></button>
-                <button type="button" value="" class="btn btn-info"><i class="bi bi-pencil"></i></button>
-                <button type="button" value="" class="btn btn-danger" (click)="delArticle(p._id)"><i
-                        class="bi bi-trash"></i></button>
+            <td>
+                <div class="d-flex justify-content-around">
+                    <button type="button" value="" class="btn btn-warning "><i class="bi bi-pencil-square"></i></button>
+                    <app-edit [product]="p"></app-edit>
+                    <button type="button" value="" class="btn btn-danger" (click)="delArticle(p._id)"><i
+                            class="bi bi-trash"></i></button>
+                </div>
             </td>
         </tr>
 
